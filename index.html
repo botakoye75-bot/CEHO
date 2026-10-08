@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="CEHO - Cek Hoaks, prototype pemeriksaan informasi digital">
+
+    <title>CEHO — Cek Hoaks</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==============================
+         TOAST NOTIFICATION
+    =============================== -->
+    <div id="toast" class="toast"></div>
+
+
+    <!-- ==============================
+         NAVBAR
+    =============================== -->
+    <header class="topbar">
+
+        <a href="#home" class="brand">
+
+            <span class="brand-mark">C</span>
+
+            <span>
+                CE<span>HO</span>
+            </span>
+
+        </a>
+
+
+        <nav class="nav">
+
+            <a href="#home" class="nav-link active">
+                Beranda
+            </a>
+
+            <a href="#checker" class="nav-link">
+                Cek Konten
+            </a>
+
+            <a href="#history" class="nav-link">
+                Riwayat
+            </a>
+
+            <a href="#about" class="nav-link">
+                Tentang
+            </a>
+
+        </nav>
+
+        </button>
+
+
+        <button id="mobileMenuBtn" class="mobile-menu" aria-label="Buka menu">
+            ☰
+        </button>
+
+    </header>
+
+
+
+    <main>
+
+        <!-- ==============================
+             HERO
+        =============================== -->
+
+        <section id="home" class="hero section">
+
+            <div class="hero-copy">
+
+                <div class="eyebrow">
+
+                    <span class="pulse"></span>
+
+                    DIGITAL INFORMATION CHECKER
+
+                </div>
+
+
+                <h1>
+
+                    Jangan langsung percaya.
+                    <br>
+
+                    <span>Cek dulu.</span>
+
+                </h1>
+
+
+                <p>
+
+                    CEHO membantu memeriksa klaim dalam konten digital,
+                    melihat sumber pembanding, dan memahami kecenderungan
+                    isi konten sebelum informasi dibagikan.
+
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <button class="btn btn-primary" onclick="goToChecker()">
+
+                        🔎 Periksa Link
+
+                    </button>
+
+
+                </div>
+
+
+                <div class="trust-row">
+
+                    <span>✓ Analisis klaim</span>
+
+                    <span>✓ Sumber pembanding</span>
+
+                    <span>✓ Riwayat pemeriksaan</span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HERO PREVIEW -->
+
+            <div class="hero-panel">
+
+                <div class="panel-top">
+
+                    <div>
+
+                        <small>CEHO SCAN</small>
+
+                        <h3>
+                            Ringkasan Pemeriksaan
+                        </h3>
+
+                    </div>
+
+
+                    <span class="live-dot">
+                        LIVE
+                    </span>
+
+                </div>
+
+
+
+                <div class="scan-score">
+
+                    <div class="score-ring">
+
+                        <strong>91</strong>
+
+                        <small>/100</small>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="status-badge valid">
+                            ✓ Cenderung Valid
+                        </span>
+
+                        <p>
+                            Confidence simulasi
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="mini-bars">
+
+                    <div>
+
+                        <span>Fakta</span>
+
+                        <b>
+                            <i style="width:91%"></i>
+                        </b>
+
+                        <em>91%</em>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Konteks</span>
+
+                        <b>
+                            <i style="width:84%"></i>
+                        </b>
+
+                        <em>84%</em>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Sumber</span>
+
+                        <b>
+                            <i style="width:95%"></i>
+                        </b>
+
+                        <em>95%</em>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel-source">
+
+                    Sumber pembanding ditemukan
+
+                    <strong>3</strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==============================
+             CHECKER
+        =============================== -->
+
+        <section id="checker" class="checker section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="eyebrow">
+                        CEK KONTEN
+                    </div>
+
+
+                    <h2>
+                        Periksa informasi digital
+                    </h2>
+
+
+                    <p>
+
+                        Masukkan tautan, atau file.
+                        Untuk demo ini, hasil analisis menggunakan data simulasi.
+
+                    </p>
+
+                </div>
+
+
+                <span class="target-pill">
+
+                    Target respons &lt; 30 detik
+
+                </span>
+
+            </div>
+
+
+
+            <div class="checker-layout">
+
+
+                <!-- INPUT -->
+
+                <div class="input-card card">
+
+
+                    <div class="tabs">
+
+                        <button class="tab active" data-type="link">
+                            🔗 Link
+                        </button>
+
+                        <button class="tab" data-type="file">
+                            🎬 File
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- LINK -->
+
+                    <div id="linkBox" class="input-panel">
+
+                        <label for="urlInput">
+                            Tautan konten
+                        </label>
+
+
+                        <div class="url-input">
+
+                            <span>
+                                https://
+                            </span>
+
+
+                            <input id="urlInput" type="text" placeholder="contoh.com/artikel/berita">
+
+                        </div>
+
+
+                        <div class="hint">
+
+                            Contoh:
+                            https://www.tiktok.com/@akun/video/123456
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- TEXT -->
+
+                    <div id="textBox" class="input-panel hidden">
+
+                        <label for="textInput">
+                            Teks atau klaim
+                        </label>
+
+
+                        <textarea id="textInput"
+                            placeholder="Tempelkan teks informasi yang ingin diperiksa..."></textarea>
+
+
+                        <div class="hint">
+
+                            <span id="charCount">
+                                0
+                            </span>
+
+                            karakter
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- FILE -->
+
+                    <div id="fileBox" class="input-panel hidden">
+
+                        <label>
+                            Audio / video
+                        </label>
+
+
+                        <label class="dropzone" for="fileInput">
+
+                            <span class="drop-icon">
+                                ↑
+                            </span>
+
+
+                            <strong>
+                                Klik untuk memilih file
+                            </strong>
+
+
+                            <small>
+                                Audio atau video • maksimal 100 MB
+                            </small>
+
+
+                            <input id="fileInput" type="file" accept="audio/*,video/*">
+
+                        </label>
+
+
+                        <div id="fileName" class="file-name hidden"></div>
+
+                    </div>
+
+
+
+                    <!-- OPTIONS -->
+
+                    <div class="advanced-row">
+
+                        <label class="switch-row">
+
+                            <input id="deepScan" type="checkbox" checked>
+
+                            <span class="switch"></span>
+
+                            Analisis mendalam
+
+                        </label>
+
+
+                        <button class="text-btn" onclick="fillExample()">
+
+                            Isi contoh
+
+                        </button>
+
+                    </div>
+
+
+
+                    <button id="analyzeBtn" class="btn btn-primary btn-full">
+
+                        🔎 Mulai Pemeriksaan
+
+                    </button>
+
+
+                    <div class="privacy-note">
+
+                        🔒 Prototype tidak mengirim data ke server
+                        dan tidak menyimpan file secara permanen.
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TIPS -->
+
+                <aside class="tips-card card">
+
+                    <div class="tip-icon">
+                        💡
+                    </div>
+
+
+                    <h3>
+                        Tips memeriksa informasi
+                    </h3>
+
+
+                    <ol>
+
+                        <li>
+                            Lihat siapa yang membuat atau menerbitkan informasi.
+                        </li>
+
+                        <li>
+                            Periksa apakah ada sumber yang dapat dipercaya.
+                        </li>
+
+                        <li>
+                            Bandingkan klaim dengan sumber lain.
+                        </li>
+
+                        <li>
+                            Jangan hanya melihat judul atau potongan video.
+                        </li>
+
+                    </ol>
+
+
+                    <div class="tip-footer">
+
+                        CEHO adalah alat bantu,
+                        bukan pengganti penilaian kritis pengguna.
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==============================
+             ANALYSIS
+        =============================== -->
+
+        <section id="analysis" class="analysis section hidden">
+
+            <div class="analysis-card card">
+
+                <div class="analysis-head">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            PROSES ANALISIS
+                        </div>
+
+
+                        <h2>
+                            CEHO sedang memeriksa...
+                        </h2>
+
+
+                        <p id="analysisSub">
+                            Mempersiapkan konten.
+                        </p>
+
+                    </div>
+
+
+                    <strong id="analysisPercent">
+                        0%
+                    </strong>
+
+                </div>
+
+
+
+                <div class="big-progress">
+
+                    <i id="analysisBar"></i>
+
+                </div>
+
+
+
+                <div class="steps">
+
+                    <div class="analysis-step active" id="step1">
+
+                        <span>1</span>
+
+                        <div>
+
+                            <b>
+                                Menerima input
+                            </b>
+
+                            <small>
+                                Validasi tautan/konten
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="analysis-step" id="step2">
+
+                        <span>2</span>
+
+                        <div>
+
+                            <b>
+                                Menemukan klaim
+                            </b>
+
+                            <small>
+                                Mengidentifikasi informasi utama
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="analysis-step" id="step3">
+
+                        <span>3</span>
+
+                        <div>
+
+                            <b>
+                                Memeriksa sumber
+                            </b>
+
+                            <small>
+                                Mencari pembanding fakta
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="analysis-step" id="step4">
+
+                        <span>4</span>
+
+                        <div>
+
+                            <b>
+                                Menganalisis konteks
+                            </b>
+
+                            <small>
+                                Bahasa, intensi, dan kesesuaian
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="analysis-step" id="step5">
+
+                        <span>5</span>
+
+                        <div>
+
+                            <b>
+                                Menyusun hasil
+                            </b>
+
+                            <small>
+                                Membuat ringkasan pemeriksaan
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==============================
+             RESULT
+        =============================== -->
+
+        <section id="result" class="result section hidden">
+
+            <div class="result-head">
+
+                <div>
+
+                    <div class="eyebrow">
+                        HASIL PEMERIKSAAN
+                    </div>
+
+
+                    <h2>
+                        Hasil CEHO
+                    </h2>
+
+
+                    <p id="resultInput"></p>
+
+                </div>
+
+
+                <button class="btn btn-secondary" onclick="goToChecker()">
+
+                    ↻ Periksa Lagi
+
+                </button>
+
+            </div>
+
+
+
+            <!-- TOP RESULT -->
+
+            <div class="result-grid-top">
+
+
+                <!-- VERDICT -->
+
+                <div class="verdict-card card">
+
+                    <div class="verdict-label">
+                        STATUS INFORMASI
+                    </div>
+
+
+                    <div class="verdict-row">
+
+                        <div id="verdictIcon" class="verdict-icon">
+                            ✓
+                        </div>
+
+
+                        <div>
+
+                            <h3 id="verdictText">
+                                Cenderung Valid
+                            </h3>
+
+
+                            <p id="verdictDesc">
+
+                                Hasil simulasi menunjukkan klaim
+                                memiliki dukungan sumber pembanding.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="confidence">
+
+                        <div class="confidence-head">
+
+                            <span>
+                                Tingkat keyakinan
+                            </span>
+
+
+                            <strong id="confidenceText">
+                                91%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="progress">
+
+                            <i id="confidenceBar"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- INTENT -->
+
+                <div class="metric-card card">
+
+                    <span>
+                        Intensi konten
+                    </span>
+
+
+                    <strong id="intentText">
+                        Edukasi
+                    </strong>
+
+
+                    <small id="intentDesc">
+
+                        Cenderung memberikan informasi
+                        atau pengetahuan.
+
+                    </small>
+
+                </div>
+
+
+
+                <!-- AGE -->
+
+                <div class="metric-card card">
+
+                    <span>
+                        Rekomendasi usia
+                    </span>
+
+
+                    <strong id="ageText">
+                        13+
+                    </strong>
+
+
+                    <small>
+
+                        Rekomendasi simulasi berdasarkan
+                        karakteristik konten.
+
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RESULT COLUMNS -->
+
+            <div class="result-columns">
+
+
+                <div class="left-results">
+
+
+                    <!-- CLAIM -->
+
+                    <div class="card claim-card">
+
+                        <div class="card-heading">
+
+                            <h3>
+                                🎯 Klaim utama
+                            </h3>
+
+
+                            <span class="tag">
+                                CLAIM
+                            </span>
+
+                        </div>
+
+
+                        <p id="claimText">
+                            —
+                        </p>
+
+
+                        <div class="claim-meta">
+
+                            <span>
+                                Ekstraksi klaim:
+                                <b>berhasil</b>
+                            </span>
+
+
+                            <span>
+                                Bahasa:
+                                <b>Indonesia</b>
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SOURCES -->
+
+                    <div class="card sources-card">
+
+                        <div class="card-heading">
+
+                            <div>
+
+                                <h3>
+                                    🔎 Sumber pembanding
+                                </h3>
+
+
+                                <small id="sourceCount">
+                                    3 sumber ditemukan
+                                </small>
+
+                            </div>
+
+
+                            <button class="text-btn"
+                                onclick="showToast('Mode pencarian sumber adalah simulasi pada prototype.')">
+
+                                Lihat semua
+
+                            </button>
+
+                        </div>
+
+
+                        <div id="sources"></div>
+
+                    </div>
+
+
+
+                    <!-- SUMMARY -->
+
+                    <div class="card detail-card">
+
+                        <div class="card-heading">
+
+                            <h3>
+                                📋 Ringkasan analisis
+                            </h3>
+
+
+                            <span class="tag">
+                                CEHO
+                            </span>
+
+                        </div>
+
+
+                        <div class="summary-grid">
+
+                            <div>
+
+                                <span>
+                                    Kesesuaian fakta
+                                </span>
+
+                                <strong id="factScore">
+                                    91%
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    Konteks
+                                </span>
+
+                                <strong id="contextScore">
+                                    84%
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    Kualitas sumber
+                                </span>
+
+                                <strong id="sourceScore">
+                                    95%
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    Risiko misinformasi
+                                </span>
+
+                                <strong id="riskScore">
+                                    Rendah
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <p id="summaryText"></p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- RIGHT -->
+
+                <aside class="right-results">
+
+
+                    <!-- LANGUAGE SIGNAL -->
+
+                    <div class="card signal-card">
+
+                        <div class="card-heading">
+
+                            <h3>
+                                🧠 Sinyal bahasa
+                            </h3>
+
+                        </div>
+
+
+                        <div class="signal">
+
+                            <span>
+                                Bahasa informatif
+                            </span>
+
+                            <b>
+                                <i style="width:87%"></i>
+                            </b>
+
+                            <em>
+                                87%
+                            </em>
+
+                        </div>
+
+
+                        <div class="signal">
+
+                            <span>
+                                Emosi berlebihan
+                            </span>
+
+                            <b>
+                                <i style="width:18%"></i>
+                            </b>
+
+                            <em>
+                                18%
+                            </em>
+
+                        </div>
+
+
+                        <div class="signal">
+
+                            <span>
+                                Ajakan menyebarkan
+                            </span>
+
+                            <b>
+                                <i style="width:12%"></i>
+                            </b>
+
+                            <em>
+                                12%
+                            </em>
+
+                        </div>
+
+
+                        <div class="signal">
+
+                            <span>
+                                Klaim absolut
+                            </span>
+
+                            <b>
+                                <i style="width:21%"></i>
+                            </b>
+
+                            <em>
+                                21%
+                            </em>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- RECOMMENDATION -->
+
+                    <div class="card recommendation">
+
+                        <div class="tip-icon">
+                            🛡
+                        </div>
+
+
+                        <h3>
+                            Saran CEHO
+                        </h3>
+
+
+                        <p id="recommendationText">
+
+                            Tetap baca sumber pembanding
+                            sebelum membagikan informasi.
+
+                        </p>
+
+
+                        <button class="btn btn-dark btn-full" onclick="saveCurrentResult()">
+
+                            ＋ Simpan ke Riwayat
+
+                        </button>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==============================
+             HISTORY
+        =============================== -->
+
+        <section id="history" class="history section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="eyebrow">
+                        RIWAYAT
+                    </div>
+
+
+                    <h2>
+                        Pemeriksaan terakhir
+                    </h2>
+
+
+                    <p>
+
+                        Riwayat tersimpan di browser perangkat ini
+                        untuk kebutuhan prototype.
+
+                    </p>
+
+                </div>
+
+
+                <button class="btn btn-secondary" onclick="clearHistory()">
+
+                    Hapus semua
+
+                </button>
+
+            </div>
+
+
+
+            <div class="history-toolbar">
+
+                <input id="historySearch" type="search" placeholder="🔎 Cari riwayat...">
+
+
+                <select id="historyFilter">
+
+                    <option value="all">
+                        Semua status
+                    </option>
+
+                    <option value="valid">
+                        Cenderung Valid
+                    </option>
+
+                    <option value="doubt">
+                        Meragukan
+                    </option>
+
+                    <option value="invalid">
+                        Tidak Valid
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div id="historyList" class="history-list"></div>
+
+        </section>
+
+
+
+        <!-- ==============================
+             ABOUT
+        =============================== -->
+
+        <section id="about" class="about section">
+
+            <div class="about-grid">
+
+                <div>
+
+                    <div class="eyebrow">
+                        TENTANG CEHO
+                    </div>
+
+
+                    <h2>
+                        Cek informasi dengan lebih kritis.
+                    </h2>
+
+
+                    <p>
+
+                        CEHO dirancang sebagai sarana pendukung
+                        literasi digital untuk membantu pengguna
+                        memahami dan mengevaluasi informasi yang
+                        ditemukan di media sosial.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="about-cards">
+
+                    <div class="card">
+
+                        <strong>01</strong>
+
+                        <h3>
+                            Verifikasi
+                        </h3>
+
+                        <p>
+                            Membandingkan klaim dengan
+                            sumber pemeriksaan.
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <strong>02</strong>
+
+                        <h3>
+                            Klasifikasi
+                        </h3>
+
+                        <p>
+                            Membaca kecenderungan bahasa
+                            dan intensi konten.
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <strong>03</strong>
+
+                        <h3>
+                            Literasi
+                        </h3>
+
+                        <p>
+                            Mendorong pengguna memeriksa
+                            sebelum membagikan.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ==============================
+         FOOTER
+    =============================== -->
+
+    <footer>
+
+        <div class="brand">
+
+            <span class="brand-mark">
+                C
+            </span>
+
+            <span>
+                CE<span>HO</span>
+            </span>
+
+        </div>
+
+
+        <p>
+            Prototype Web Native • HTML • CSS • JavaScript
+        </p>
+
+
+        <small>
+            © 2026 CEHO — Cek Hoaks
+        </small>
+
+    </footer>
+
+
+
+    <!-- ==============================
+         DEMO MODAL
+    =============================== -->
+
+    <div id="demoModal" class="modal hidden">
+
+        <div class="modal-box">
+
+            <button class="modal-close" onclick="closeDemo()">
+                ×
+            </button>
+
+
+            <div class="demo-icon">
+                ▶
+            </div>
+
+
+            <h2>
+                Demo alur CEHO
+            </h2>
+
+
+            <p>
+
+                Masukkan contoh link pada halaman pemeriksaan,
+                lalu klik <b>Mulai Pemeriksaan</b>.
+                Prototype akan menampilkan alur analisis
+                sampai hasil.
+
+            </p>
+
+
+            <button class="btn btn-primary btn-full" onclick="closeDemo(); goToChecker(); fillExample();">
+
+                Coba Demo
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
