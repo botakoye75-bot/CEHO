@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CEHO membantu memeriksa informasi digital dan klaim yang beredar.">
+  <title>CEHO — Cek Hoaks</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#beranda" aria-label="CEHO beranda">
+      <span class="brand-mark">C</span><span class="brand-name">CE<span>HO</span></span>
+    </a>
+    <button class="menu-button" id="menuBtn" aria-label="Buka menu" aria-expanded="false">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#beranda">Beranda</a>
+      <a href="#pemeriksaan">Periksa Informasi</a>
+      <a href="#tentang">Tentang</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="status-dot"></span> DIGITAL INFORMATION CHECKER</div>
+        <h1>Jangan langsung percaya.<br><span>Cek dulu.</span></h1>
+        <p>CEHO membantu memeriksa klaim dalam konten digital, melihat sumber pembanding, dan memahami kecenderungan isi konten sebelum informasi dibagikan.</p>
+        <a class="button button-primary hero-cta" href="#pemeriksaan">🔎 Periksa Link</a>
+        <ul class="feature-list">
+          <li>✓ Analisis klaim</li>
+          <li>✓ Sumber pembanding</li>
+          <li>✓ Riwayat pemeriksaan</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="checker-section section-wrap" id="pemeriksaan">
+      <div class="section-heading">
+        <p class="eyebrow">CEK KONTEN</p>
+        <h2>Periksa informasi digital</h2>
+        <p>Masukkan tautan atau unggah file. Untuk demo ini, hasil analisis menggunakan data simulasi.</p>
+        <span class="response-pill">Target respons &lt; 30 detik</span>
+      </div>
+
+      <div class="checker-card">
+        <div class="input-tabs" role="tablist" aria-label="Jenis input">
+          <button class="tab active" id="linkTab" data-type="link" role="tab" aria-selected="true">🔗 Link</button>
+          <button class="tab" id="fileTab" data-type="file" role="tab" aria-selected="false">🎬 File</button>
+        </div>
+
+        <div class="input-panel" id="linkPanel">
+          <label for="urlInput">Tautan informasi</label>
+          <input id="urlInput" type="url" placeholder="https://contoh.com/artikel" autocomplete="url">
+          <p class="field-help">Tempelkan alamat artikel atau halaman yang ingin diperiksa.</p>
+        </div>
+
+        <div class="input-panel hidden" id="filePanel">
+          <label for="fileInput">Pilih file</label>
+          <div class="file-drop">
+            <div class="file-icon">📁</div>
+            <p><strong>Pilih file dari perangkat</strong></p>
+            <p class="field-help">Format demo: TXT, PDF, MP4, MP3, JPG, PNG (maksimal 15 MB)</p>
+            <input id="fileInput" type="file" accept=".txt,.pdf,.mp4,.mp3,.jpg,.jpeg,.png,.webm,.wav">
+          </div>
+          <p class="field-help" id="fileName">Belum ada file dipilih.</p>
+        </div>
+
+        <div class="checker-options">
+          <label class="toggle-label"><input type="checkbox" id="deepScan" checked><span class="toggle"></span><span>Analisis mendalam</span></label>
+          <button class="text-button" id="exampleBtn" type="button">Isi contoh</button>
+        </div>
+        <button class="button button-primary check-button" id="checkBtn">🔎 Mulai Pemeriksaan</button>
+        <p class="privacy-note">🔒 Data yang dimasukkan pada versi demo ini tidak dikirim ke layanan pemeriksaan eksternal.</p>
+        <p class="error-message hidden" id="errorMessage" role="alert"></p>
+      </div>
+
+      <section class="results hidden" id="resultsSection" aria-live="polite">
+        <div class="progress-card hidden" id="progressCard">
+          <div class="progress-top"><strong>Sedang memeriksa informasi</strong><span id="progressPercent">0%</span></div>
+          <div class="progress-track"><div id="progressBar"></div></div>
+          <ul id="progressSteps" class="progress-steps">
+            <li>Memvalidasi input</li><li>Menganalisis klaim</li><li>Mencocokkan sumber</li><li>Menyusun hasil</li>
+          </ul>
+        </div>
+        <div class="result-card hidden" id="resultCard">
+          <div class="result-heading">
+            <div><p class="eyebrow">HASIL PEMERIKSAAN DEMO</p><h2 id="resultTitle">Informasi perlu ditinjau</h2></div>
+            <span class="result-badge" id="resultBadge">Meragukan</span>
+          </div>
+          <p class="result-description" id="resultDescription"></p>
+          <div class="result-stats">
+            <div class="stat-box"><span>Skor keyakinan demo</span><strong id="confidenceScore">—</strong></div>
+            <div class="stat-box"><span>Risiko misinformasi</span><strong id="riskLevel">—</strong></div>
+            <div class="stat-box"><span>Kecenderungan konten</span><strong id="intentLevel">—</strong></div>
+          </div>
+          <div class="claim-box"><h3>Klaim yang diperiksa</h3><p id="claimText"></p></div>
+          <h3>Sumber dan langkah lanjutan</h3>
+          <div class="source-grid" id="sourceGrid"></div>
+          <p class="disclaimer">Catatan: hasil ini merupakan simulasi antarmuka, bukan keputusan faktual. Periksa sumber primer dan media tepercaya sebelum membagikan informasi.</p>
+          <button class="button button-secondary" id="resetBtn">Periksa Informasi Lain</button>
+        </div>
+      </section>
+
+      <section class="history-section" id="riwayat">
+        <div class="history-heading"><div><p class="eyebrow">TERSIMPAN DI PERANGKAT</p><h2>Riwayat pemeriksaan</h2></div><button class="text-button" id="clearHistoryBtn">Hapus riwayat</button></div>
+        <div class="history-tools"><input type="search" id="historySearch" placeholder="Cari riwayat..."><select id="historyFilter" aria-label="Filter riwayat"><option value="all">Semua hasil</option><option value="valid">Cenderung valid</option><option value="doubt">Meragukan</option><option value="invalid">Tidak valid</option></select></div>
+        <div id="historyList" class="history-list"><p class="empty-state">Belum ada riwayat pemeriksaan.</p></div>
+      </section>
+    </section>
+
+    <section class="about-section" id="tentang">
+      <div class="section-wrap about-inner">
+        <p class="eyebrow">TENTANG CEHO</p>
+        <h2>Berpikir kritis sebelum berbagi.</h2>
+        <p>CEHO (Cek Hoaks) dirancang sebagai prototype literasi digital untuk membantu pengguna meninjau klaim, membandingkan sumber, dan lebih berhati-hati saat menerima informasi online.</p>
+        <div class="about-points"><div><strong>01</strong><span>Periksa sumber</span></div><div><strong>02</strong><span>Tinjau konteks</span></div><div><strong>03</strong><span>Bagikan dengan bijak</span></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="brand footer-brand" href="#beranda"><span class="brand-mark">C</span><span class="brand-name">CE<span>HO</span></span></a><p>Prototype CEHO · Cek Hoaks</p></footer>
+  <div class="toast hidden" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
