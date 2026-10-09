@@ -148,51 +148,41 @@ function showToast(message) {
 
 }
 
-
-
 /* =====================================================
    MOBILE MENU
 ===================================================== */
 
-$("#mobileMenuBtn").addEventListener(
+const mobileMenuBtn = $("#mobileMenuBtn");
+const nav = $(".nav");
+
+mobileMenuBtn.addEventListener(
     "click",
     () => {
-
-        const nav = $(".nav");
-
-
         if (nav.style.display === "flex") {
-
             nav.style.display = "";
-
             return;
-
         }
 
-
         nav.style.display = "flex";
-
         nav.style.position = "absolute";
-
         nav.style.top = "72px";
-
         nav.style.left = "0";
-
         nav.style.right = "0";
-
         nav.style.padding = "18px 24px";
-
-        nav.style.background =
-            "var(--surface)";
-
-        nav.style.borderBottom =
-            "1px solid var(--line)";
-
-        nav.style.flexDirection =
-            "column";
-
+        nav.style.background = "var(--surface)";
+        nav.style.borderBottom = "1px solid var(--line)";
+        nav.style.flexDirection = "column";
     }
 );
+
+// Tutup menu otomatis saat link diklik di HP
+$$(".nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+        if (window.innerWidth <= 700) {
+            nav.style.display = "";
+        }
+    });
+});
 
 
 /* =====================================================
