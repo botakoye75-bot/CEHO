@@ -1762,46 +1762,6 @@ footer small {
 
 
 /* =========================
-   TABLET
-========================= */
-
-@media (max-width: 950px) {
-
-    .hero,
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero {
-        padding-top: 60px;
-    }
-
-    .checker-layout,
-    .result-columns {
-        grid-template-columns: 1fr;
-    }
-
-    .result-grid-top {
-        grid-template-columns:
-            1fr 1fr;
-    }
-
-    .steps {
-        grid-template-columns:
-            1fr 1fr;
-    }
-
-    .analysis-step:last-child {
-        grid-column: 1 / -1;
-    }
-
-    .about-cards {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-/* =========================
    MOBILE
 ========================= */
 
