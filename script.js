@@ -811,7 +811,7 @@ function renderResult(data) {
     if (data.mode === "valid") {
 
         status =
-            "Cenderung Valid";
+            "Valid";
 
         desc =
             "Hasil simulasi menunjukkan klaim memiliki dukungan dari sumber pembanding.";
@@ -1248,7 +1248,7 @@ function renderHistory() {
 
                             ${item.mode === "valid"
 
-                        ? "✓ Cenderung Valid"
+                        ? "✓  Valid"
 
                         : item.mode === "doubt"
 
