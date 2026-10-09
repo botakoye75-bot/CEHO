@@ -823,7 +823,7 @@ function renderResult(data) {
     ) {
 
         status =
-            "Meragukan";
+            "lumayan valid";
 
         desc =
             "Sebagian informasi memiliki pembanding, tetapi konteks masih perlu diperiksa.";
@@ -1252,7 +1252,7 @@ function renderHistory() {
 
                         : item.mode === "doubt"
 
-                            ? "! Meragukan"
+                            ? "! lumayan valid"
 
                             : "× Tidak Valid"
 
